@@ -30,4 +30,17 @@ class HabitProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  //to reset
+  void resetHabit() {
+    for (var habit in _habits) {
+      habit.isCompleted = false;
+    }
+    notifyListeners();
+  }
+
+  void removeHabit(String id) {
+    _habits.removeWhere((tx) => tx.id == id);
+    notifyListeners();
+  }
 }
